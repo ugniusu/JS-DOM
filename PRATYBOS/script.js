@@ -1,5 +1,7 @@
 "use strict";
 
+/*
+//  PRATYBOS NR.1
 // 1.
 document.querySelector("p").innerText = "Labas rytas visiems, kas normalus";
 
@@ -95,4 +97,85 @@ click.addEventListener("click", (event) => {
   console.log(countClicks);
 
   counting.textContent = countClicks;
+});
+
+*/
+
+// PRATYBOS NR.2
+// 1.
+const container = document.querySelector(".pratybos-2");
+
+const span = document.createElement("span");
+
+const h1 = document.createElement("h1");
+h1.setAttribute("id", "h1-id");
+
+const p = document.createElement("p");
+
+const h2 = document.createElement("h2");
+h2.setAttribute("class", "h2-class");
+container.append(h2);
+const h2Class = document.querySelector(".h2-class");
+console.log(h2Class);
+
+const strong = document.createElement("strong");
+strong.setAttribute("id", "strong-class");
+container.append(strong);
+const strongId = document.querySelector("#strong-class");
+
+// 2.
+span.textContent = "Is kurio tu medzio iskrites ?";
+h1.textContent = "Ka tu ziuri pajacas";
+p.textContent = "Kas skaitys , tas gaidys";
+h2.textContent = "Stebisi tas, kas nestebi";
+strong.textContent = "Kai ... ka sakei?";
+
+const pratybos2 = document.querySelector(".pratybos-2");
+
+pratybos2.append(span, h1, p, h2, strong);
+
+// 3.
+span.style.backgroundColor = "aqua";
+
+h1.style.textTransform = "uppercase";
+h1.style.display = "flex";
+h1.style.justifyContent = "center";
+
+p.style.letterSpacing = "5px";
+
+h2Class.style.border = "2px solid";
+
+strongId.style.display = "flex";
+strongId.style.justifyContent = "end";
+
+// 4.
+
+for (let i = 0; i < 6; i++) {
+  const div = document.createElement("div");
+  div.textContent = "Hi all";
+  container.append(div);
+  div.style.height = "100px";
+  div.style.width = "100px";
+  console.log(div);
+}
+
+// 5.
+const randomBtn = document.createElement("button");
+randomBtn.textContent = "Random color";
+container.append(randomBtn);
+
+const colors = [];
+for (let i = 0; i < 10; i++) {
+  const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+  colors.push(randomColor);
+}
+
+randomBtn.addEventListener("click", () => {
+  const allDiv = pratybos2.querySelectorAll("div");
+
+  allDiv.forEach((div) => {
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    const randomColor = colors[randomIndex];
+    div.style.backgroundColor = randomColor;
+  });
 });
