@@ -53,11 +53,11 @@ childs.forEach((el, index) => {
 // 5.
 const submit = document.querySelector(".btn");
 const input = document.querySelector("input");
-let count = 0;
+// let count = 0;
 
 submit.addEventListener("click", (event) => {
   event.preventDefault();
-  count++;
+  // count++;
   const inputValue = input.value;
   console.log(inputValue);
 
@@ -89,6 +89,7 @@ btn2.addEventListener("click", () => {
 
 // 7.
 const click = document.querySelector(".click");
+const click2 = document.querySelector(".click2")
 const counting = document.querySelector(".count");
 let countClicks = 0;
 click.addEventListener("click", (event) => {
@@ -99,8 +100,17 @@ click.addEventListener("click", (event) => {
   counting.textContent = countClicks;
 });
 
+click2.addEventListener("click", (event) => {
+  event.preventDefault();
+  countClicks--;
+  console.log(countClicks);
+
+  counting.textContent = countClicks;
+});
 */
 
+
+/*
 // PRATYBOS NR.2
 // 1.
 const container = document.querySelector(".pratybos-2");
@@ -160,6 +170,105 @@ for (let i = 0; i < 6; i++) {
 }
 
 // 5.
+const randomBtn = document.createElement("button");
+randomBtn.textContent = "Random color";
+container.append(randomBtn);
+
+const colors = [];
+for (let i = 0; i < 10; i++) {
+  const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+  colors.push(randomColor);
+}
+
+randomBtn.addEventListener("click", () => {
+  const allDiv = pratybos2.querySelectorAll("div");
+
+  allDiv.forEach((div) => {
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    const randomColor = colors[randomIndex];
+    div.style.backgroundColor = randomColor;
+  });
+});
+
+// 6.
+const wordsContainer = document.querySelector(".pratybos-2")
+const masyvas = ["obuolys", "kriause", "apelsinas", "bananas", "kokosas", "virsila"]
+
+const random = (array) => {
+  const randomIndex = Math.floor(Math.random() * array.length)
+  console.log(randomIndex)
+  return array[randomIndex]
+}
+
+for (let i = 1; i < masyvas.length; i++) {
+  const pEl = document.createElement("p")
+  const randonWord = random(masyvas)
+  pEl.textContent = randonWord
+  wordsContainer.append(pEl)
+}
+*/
+
+
+/////////////////////////////////////////
+// PRATYBOS NR. 3
+
+// const button = document.createElement("button");
+// button.innerText = "CREATE TABLE: ";
+// const inputRows = document.createElement("input");
+// inputRows.placeholder = "eilutes";
+// const inputColumns = document.createElement("input");
+// inputColumns.placeholder = "stulpeliai";
+// const container = document.createElement("div");
+// container.append(button, inputRows, inputColumns);
+// document.body.append(container);
+// const divas = document.getElementById("tablel");
+ 
+// button.addEventListener("click", (event) => {
+//   event.preventDefault();
+//   const tablecheck = document.querySelector("table");
+//   if (tablecheck) {
+//     tablecheck.remove();
+//   }
+//   const table = document.createElement("table");
+//   const tableBody = document.createElement("tbody");
+//   const eilSk = inputRows.value; // eilSk talpina ivesta value i langelius
+//   const stulpSk = inputColumns.value; // stulpSk talpina ivesta value i langelius
+ 
+//   for (let i = 0; i < eilSk; i++) {
+//     const row = document.createElement("tr");
+ 
+//     for (let j = 0; j < stulpSk; j++) {
+//       const cell = document.createElement("td");
+//       const cellText = document.createTextNode(`cell in row ${i}, column ${j}`);
+//       cell.appendChild(cellText);
+//       row.appendChild(cell);
+//     }
+//     tableBody.appendChild(row);
+//   }
+//   table.appendChild(tableBody);
+//   document.body.appendChild(table);
+//   table.setAttribute("border", "2"); // del vizualo
+// });
+
+// ///////////////////////////////////
+// PRATYBOS NR.4
+
+const wordsContainer = document.querySelector(".pratybos-2")
+const masyvas = ["obuolys", "kriause", "apelsinas", "bananas", "kokosas", "virsila"]
+
+const random = (array) => {
+  const randomIndex = Math.floor(Math.random() * array.length)
+  console.log(randomIndex)
+  return array[randomIndex]
+}
+
+for (let i = 1; i < masyvas.length; i++) {
+  const pEl = document.createElement("p")
+  const randonWord = random(masyvas)
+  pEl.textContent = randonWord
+  wordsContainer.append(pEl)
+}
+
 const randomBtn = document.createElement("button");
 randomBtn.textContent = "Random color";
 container.append(randomBtn);
