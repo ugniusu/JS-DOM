@@ -109,7 +109,6 @@ click2.addEventListener("click", (event) => {
 });
 */
 
-
 /*
 // PRATYBOS NR.2
 // 1.
@@ -208,7 +207,6 @@ for (let i = 1; i < masyvas.length; i++) {
 }
 */
 
-
 /////////////////////////////////////////
 // PRATYBOS NR. 3
 
@@ -222,7 +220,7 @@ for (let i = 1; i < masyvas.length; i++) {
 // container.append(button, inputRows, inputColumns);
 // document.body.append(container);
 // const divas = document.getElementById("tablel");
- 
+
 // button.addEventListener("click", (event) => {
 //   event.preventDefault();
 //   const tablecheck = document.querySelector("table");
@@ -233,10 +231,10 @@ for (let i = 1; i < masyvas.length; i++) {
 //   const tableBody = document.createElement("tbody");
 //   const eilSk = inputRows.value; // eilSk talpina ivesta value i langelius
 //   const stulpSk = inputColumns.value; // stulpSk talpina ivesta value i langelius
- 
+
 //   for (let i = 0; i < eilSk; i++) {
 //     const row = document.createElement("tr");
- 
+
 //     for (let j = 0; j < stulpSk; j++) {
 //       const cell = document.createElement("td");
 //       const cellText = document.createTextNode(`cell in row ${i}, column ${j}`);
@@ -253,20 +251,27 @@ for (let i = 1; i < masyvas.length; i++) {
 // ///////////////////////////////////
 // PRATYBOS NR.4
 
-const wordsContainer = document.querySelector(".pratybos-2")
-const masyvas = ["obuolys", "kriause", "apelsinas", "bananas", "kokosas", "virsila"]
+const wordsContainer = document.querySelector(".pratybos-2");
+const masyvas = [
+  "obuolys",
+  "kriause",
+  "apelsinas",
+  "bananas",
+  "kokosas",
+  "virsila",
+];
 
 const random = (array) => {
-  const randomIndex = Math.floor(Math.random() * array.length)
-  console.log(randomIndex)
-  return array[randomIndex]
-}
+  const randomIndex = Math.floor(Math.random() * array.length);
+  console.log(randomIndex);
+  return array[randomIndex];
+};
 
 for (let i = 1; i < masyvas.length; i++) {
-  const pEl = document.createElement("p")
-  const randonWord = random(masyvas)
-  pEl.textContent = randonWord
-  wordsContainer.append(pEl)
+  const pEl = document.createElement("p");
+  const randonWord = random(masyvas);
+  pEl.textContent = randonWord;
+  wordsContainer.append(pEl);
 }
 
 const randomBtn = document.createElement("button");
