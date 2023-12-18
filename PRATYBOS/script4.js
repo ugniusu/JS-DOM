@@ -60,6 +60,7 @@ for (let j = 0; j < masyvas.length; j++) {
   fillLike.style.bottom = "50px";
   fillLike.style.zIndex = "-1";
 
+
   divImg.append(like);
   divImg.append(fillLike);
 
@@ -72,9 +73,39 @@ const heart = document.querySelectorAll(".fillHeart");
 imgContainer.style.display = "grid";
 imgContainer.style.gridTemplateColumns = "1fr 1fr 1fr 1fr 1fr";
 
+const likedImg = [];
+
 emptyHeart.forEach((el, index) => {
   el.addEventListener("click", () => {
     heart[index].style.zIndex = "5";
+    likedImg.push(masyvas[index])
+    newLocalStorage();
   });
 });
-// 2.
+
+heart.forEach((el, index) => {
+  el.addEventListener("click", () => {
+    heart[index].style.zIndex = "-6"
+    const likedIndex = likedImg.indexOf(masyvas[index])
+    if (likedIndex !== -1) {
+      likedImg.splice(likedIndex, 1)
+      newLocalStorage()
+    }
+  })
+})
+
+const newLocalStorage = () => {
+  localStorage.setItem("liked", JSON.stringify(likedImg))
+}
+
+const likedImgs = localStorage.getItem("liked")
+if (likedImgs) {
+  likedImg.push(...JSON.parse(likedImgs))
+
+  likedImg.forEach((el) => {
+    const index = masyvas.indexOf(el)
+    if (index !== -1) {
+      heart[index].style.zIndex = "5"
+    }
+  })
+}
