@@ -251,6 +251,7 @@ for (let i = 1; i < masyvas.length; i++) {
 // ///////////////////////////////////
 // PRATYBOS NR.4
 
+/*
 const wordsContainer = document.querySelector(".pratybos-2");
 const masyvas = [
   "obuolys",
@@ -293,3 +294,4 @@ randomBtn.addEventListener("click", () => {
     div.style.backgroundColor = randomColor;
   });
 });
+*/

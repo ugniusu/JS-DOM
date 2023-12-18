@@ -2,31 +2,49 @@
 
 const form = document.createElement("form")
 console.log(form)
-const input = document.createElement("input")
-const label = document.createElement("label")
-const input1 = document.createElement("input")
-const label2 = document.createElement("label")
-const input2 = document.createElement("input")
-const label3 = document.createElement("label")
+const id = document.createElement("input")
+const name = document.createElement("input")
+const quantity = document.createElement("input")
 const button = document.createElement("button")
 button.setAttribute("type", "submit")
 
 document.body.append(form)
-form.append(input)
-input.setAttribute("placeholder", "ID")
-input.setAttribute("type", "text")
-input.setAttribute("pattern", "[0-9]{1,9}")
-input.setAttribute("required", "true")
+form.append(id)
+id.setAttribute("placeholder", "ID")
+id.setAttribute("type", "text")
+id.setAttribute("pattern", "[0-9]{1,9}")
+id.setAttribute("required", "true")
 
-form.append(input1)
-input1.setAttribute("placeholder", "pavadinimas")
-input1.setAttribute("required", "true")
+form.append(name)
+name.setAttribute("placeholder", "pavadinimas")
+name.setAttribute("required", "true")
 
-form.append(input2)
-input2.setAttribute("placeholder", "kiekis")
-input2.setAttribute("type", "number")
-input2.setAttribute("required", "true")
+form.append(quantity)
+quantity.setAttribute("placeholder", "kiekis")
+quantity.setAttribute("type", "number")
+quantity.setAttribute("required", "true")
 
 form.append(button)
 
 button.textContent = "Submit"
+
+const dataFromLs = JSON.parse(localStorage.getItem("uzsakymai"))
+const data = dataFromLs === null ? [] : dataFromLs
+
+
+button.addEventListener("click", (event) => {
+    event.preventDefault();
+    const idValue = id.value;
+    const nameValue = name.value
+    const amountValue = quantity.value
+    const allValue = {
+        id: idValue,
+        name: nameValue,
+        quantity: amountValue
+    }
+    console.log(allValue);
+    data.push(allValue);
+    console.log(data)
+    localStorage.setItem("uzsakymas", JSON.stringify(data))
+  });
+  
